@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register</h1>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        Enter First Name: <input type="text" name="first_name"><br>
+        Enter Last Name: <input type="text" name="last_name"><br>
+        Enter Username: <input type="text" name="username"><br>
+        Enter Email: <input type="email" name="email"><br>
+        Enter Password 1: <input type="password" name="password1"><br>
+        Enter Password 2: <input type="password" name="password2"><br>
+        <input type="submit" value="Register">
+    </form>
+
+    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+    <p>Go back to <a href="#">Home</a></p>
+</body>
+</html>
